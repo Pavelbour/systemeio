@@ -1,0 +1,42 @@
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/var/app
+    working_dir: /var/app
+    networks:
+      - systemeio_network
+  
+  postgres:
+    image: postgres:16.2-alpine3.19
+    restart: unless-stopped
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-password
+      - POSTGRES_USER_FILE=/run/secrets/postgres-user
+      - POSTGRES_DB_FILE=/run/secrets/postgres-db
+    secrets:
+      - postgres-password
+      - postgres-user
+      - postgres-db
+    networks:
+      - systemeio_network
+
+networks:
+  systemeio_network:
+
+secrets:
+  postgres-password:
+    environment: "POSTGRES_PASSWORD"
+  postgres-user:
+    environment: "POSTGRES_USER"
+  postgres-db:
+    environment: "POSTGRES_DB"
