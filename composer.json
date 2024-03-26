@@ -16,6 +16,7 @@
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.0.*",
         "symfony/runtime": "7.0.*",
+        "symfony/validator": "7.0.*",
         "symfony/yaml": "7.0.*"
     },
     "config": {
@@ -68,6 +69,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.5",
         "symfony/maker-bundle": "^1.57"
     }
 }
