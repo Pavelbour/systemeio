@@ -13,9 +13,6 @@ class PromoCode
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $type = null;
-
     #[ORM\Column(length: 30)]
     private ?string $code = null;
 
@@ -27,18 +24,6 @@ class PromoCode
     public function setId(string $id): static
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getType(): ?int
-    {
-        return $this->type;
-    }
-
-    public function setType(int $type): static
-    {
-        $this->type = $type;
 
         return $this;
     }

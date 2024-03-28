@@ -24,7 +24,7 @@ final class Version20240326153825 extends AbstractMigration
         $this->addSql('CREATE SEQUENCE promo_code_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE tax_number_validator_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE payment (id INT NOT NULL, order_id INT NOT NULL, amount INT NOT NULL, payment_system_id INT NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE promo_code (id INT NOT NULL, type INT NOT NULL, code VARCHAR(30) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE promo_code (id INT NOT NULL, code VARCHAR(30) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE tax_number_validator (id INT NOT NULL, code VARCHAR(2) NOT NULL, regex VARCHAR(100) NOT NULL, PRIMARY KEY(id))');
     }
 
