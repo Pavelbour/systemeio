@@ -20,8 +20,8 @@ class TaxServiceTest extends KernelTestCase
     public static function countryCodeProvider(): array
     {
         return [
-            [10000, 'DE', 11900],
-            [10000, 'IT', 12200],
+            [10000, 'DE11111', 11900],
+            [10000, 'IT22222', 12200],
         ];
     }
 
