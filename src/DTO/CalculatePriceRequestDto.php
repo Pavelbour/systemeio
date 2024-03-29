@@ -2,21 +2,26 @@
 
 namespace App\DTO;
 
+use App\Validator as CustomAssert;;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class CalculatePriceRequestDto
 {
     #[Assert\NotBlank()]
     #[Assert\Type('integer')]
+    #[CustomAssert\ProductId()]
     private int $product;
 
     #[Assert\NotBlank()]
     #[Assert\Type('string')]
     #[Assert\Regex('/^[A-Z]{2}/')]
+    #[CustomAssert\TaxNumber()]
     private string $taxNumber;
 
     #[Assert\Type('string')]
-    private string $couponCode;
+    #[Assert\Regex('/^[A-Z]{1}/')]
+    #[CustomAssert\CouponCode()]
+    private ?string $couponCode;
 
     public function setProduct(int $product): void
     {
@@ -45,6 +50,6 @@ class CalculatePriceRequestDto
 
     public function getCouponCode(): string
     {
-        return $this->couponCode;
+        return $this->couponCode ?? '';
     }
 }

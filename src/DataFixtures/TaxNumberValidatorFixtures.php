@@ -12,22 +12,22 @@ class TaxNumberValidatorFixtures extends Fixture
     {
         $validator = new TaxNumberValidator();
         $validator->setCode('DE');
-        $validator->setRegex('^DE[0-9]{9}$');
+        $validator->setRegex('/^DE[0-9]{9}$/');
         $manager->persist($validator);
 
         $validator = new TaxNumberValidator();
         $validator->setCode('IT');
-        $validator->setRegex('^IT[0-9]{11}$');
+        $validator->setRegex('/^IT[0-9]{11}$/');
         $manager->persist($validator);
 
         $validator = new TaxNumberValidator();
         $validator->setCode('GR');
-        $validator->setRegex('^GR[0-9]{9}$');
+        $validator->setRegex('/^GR[0-9]{9}$/');
         $manager->persist($validator);
 
         $validator = new TaxNumberValidator();
         $validator->setCode('FR');
-        $validator->setRegex('^FR[A-Z]{2}[0-9]{9}$');
+        $validator->setRegex('/^FR[A-Z]{2}[0-9]{9}$/');
         $manager->persist($validator);
 
         $manager->flush();

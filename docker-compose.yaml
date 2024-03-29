@@ -7,7 +7,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - 8000:8000
+      - 8337:8337
     volumes:
       - .:/var/app
     working_dir: /var/app
