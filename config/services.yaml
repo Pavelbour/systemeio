@@ -19,12 +19,16 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    Systemeio\TestForCandidates\PaymentProcessor\:
+        resource: '../vendor/systemeio/test-for-candidates/src/PaymentProcessor/'
 
-    App\Service\PromoCode\PromoCodeService:
+    App\Service\CouponCode\CouponCodeService:
         public: true
     App\Service\Tax\TaxService:
         public: true
     App\Service\PriceCalculator\PriceCalculatorService:
+        public: true
+    App\Service\Purchase\PaymentProcessorPool:
         public: true
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

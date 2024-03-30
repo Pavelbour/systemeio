@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Payment;
+use App\Entity\CouponCode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Payment>
+ * @extends ServiceEntityRepository<CouponCode>
  *
- * @method Payment|null find($id, $lockMode = null, $lockVersion = null)
- * @method Payment|null findOneBy(array $criteria, array $orderBy = null)
- * @method Payment[]    findAll()
- * @method Payment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CouponCode|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CouponCode|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CouponCode[]    findAll()
+ * @method CouponCode[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PaymentRepository extends ServiceEntityRepository
+class CouponCodeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Payment::class);
+        parent::__construct($registry, CouponCode::class);
     }
 
     //    /**
-    //     * @return Payment[] Returns an array of Payment objects
+    //     * @return CouponCode[] Returns an array of CouponCode objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -36,7 +36,7 @@ class PaymentRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Payment
+    //    public function findOneBySomeField($value): ?CouponCode
     //    {
     //        return $this->createQueryBuilder('p')
     //            ->andWhere('p.exampleField = :val')

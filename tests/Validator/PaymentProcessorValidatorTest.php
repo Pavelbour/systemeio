@@ -1,34 +1,33 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Validator;
 
 use App\Kernel;
-use App\Validator\TaxNumber;
-use App\Validator\TaxNumberValidator;
+use App\Validator\PaymentProcessor;
+use App\Validator\PaymentProcessorValidator;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
-class TaxNumberValidatorTest extends ConstraintValidatorTestCase
+class PaymentProcessorValidatorTest extends ConstraintValidatorTestCase
 {
     protected function createValidator(): ConstraintValidatorInterface
     {
         $kernel = new Kernel('test', true);
         $kernel->boot();
         $container = $kernel->getContainer()->get('test.service_container');
-        return $container->get(TaxNumberValidator::class);
+        return $container->get(PaymentProcessorValidator::class);
     }
 
-    public function testValidTaxNumber(): void
+    public function testValidPaymentProcessorName(): void
     {
-        $this->validator->validate('IT22222222222', new TaxNumber());
+        $this->validator->validate('paypal', new PaymentProcessor());
         $this->assertNoViolation();
     }
 
-    
-    public function testInvalidTaxNumber(): void
+    public function testInvalidPaymentProcessorName(): void
     {
-        $constraint = new TaxNumber();
-        $value = 'DE11';
+        $constraint = new PaymentProcessor();
+        $value = 'test';
         $this->validator->validate($value, $constraint);
 
         $this->buildViolation($constraint->message)

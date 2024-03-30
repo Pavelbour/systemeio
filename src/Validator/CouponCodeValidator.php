@@ -2,14 +2,14 @@
 
 namespace App\Validator;
 
-use App\Repository\PromoCodeRepository;
+use App\Repository\CouponCodeRepository;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
 class CouponCodeValidator extends ConstraintValidator
 {
     public function __construct(
-        private PromoCodeRepository $repository,
+        private CouponCodeRepository $repository,
     ) {
     }
 
@@ -21,8 +21,8 @@ class CouponCodeValidator extends ConstraintValidator
             return;
         }
 
-        $promoCode = $this->repository->findOneBy(['code' => $value]);
-        if ($promoCode) {
+        $couponCode = $this->repository->findOneBy(['code' => $value]);
+        if ($couponCode) {
             return;
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Service;
 
 use App\Service\Tax\TaxService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

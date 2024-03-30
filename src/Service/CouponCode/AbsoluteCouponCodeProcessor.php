@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Service\PromoCode;
+namespace App\Service\CouponCode;
 
-class AbsolutePromoCodeProcessor implements PromoCodeProcessor
+class AbsoluteCouponCodeProcessor implements CouponCodeProcessor
 {
     public function process(int $price, int $discount): int
     {

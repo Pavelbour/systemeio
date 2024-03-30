@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Service\PromoCode;
+namespace App\Service\CouponCode;
 
-interface PromoCodeProcessor
+interface CouponCodeProcessor
 {
     public function process(int $price, int $discount): int;
 }

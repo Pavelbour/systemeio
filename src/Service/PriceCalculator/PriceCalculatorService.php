@@ -4,13 +4,13 @@ namespace App\Service\PriceCalculator;
 
 use App\DTO\CalculatePriceRequestDto;
 use App\Repository\ProductRepository;
-use App\Service\PromoCode\PromoCodeService;
+use App\Service\CouponCode\CouponCodeService;
 use App\Service\Tax\TaxService;
 
 class PriceCalculatorService
 {
     public function __construct(
-        private PromoCodeService $promoCodeService,
+        private CouponCodeService $couponCodeService,
         private TaxService $taxService,
         private ProductRepository $productRepository,
     ) {
@@ -32,7 +32,7 @@ class PriceCalculatorService
 
         if ($code) {
             try {
-                $price = $this->promoCodeService->getPrice($price, $code); 
+                $price = $this->couponCodeService->getPrice($price, $code); 
             } catch (\Exception $e) {
                 $errors[] = $e->getMessage();
             }

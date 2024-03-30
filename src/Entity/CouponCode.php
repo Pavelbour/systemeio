@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PromoCodeRepository;
+use App\Repository\CouponCodeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PromoCodeRepository::class)]
-class PromoCode
+#[ORM\Entity(repositoryClass: CouponCodeRepository::class)]
+class CouponCode
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

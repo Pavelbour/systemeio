@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Validator;
 
 use App\Kernel;
 use App\Repository\ProductRepository;

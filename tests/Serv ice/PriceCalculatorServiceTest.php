@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Service;
 
 use App\DTO\CalculatePriceRequestDto;
 use App\Repository\ProductRepository;
@@ -42,7 +42,7 @@ class PriceCalculatorServiceTest extends KernelTestCase
         $this->dto->setCouponCode('AA');
 
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Promocode not found');
+        $this->expectExceptionMessage('Coupon code not found');
         $this->expectExceptionMessage('Country code not found');
         $this->service->calculateProductPrice($this->dto);
     }

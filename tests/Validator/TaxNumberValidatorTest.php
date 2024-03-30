@@ -1,33 +1,34 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Validator;
 
 use App\Kernel;
-use App\Validator\CouponCode;
-use App\Validator\CouponCodeValidator;
+use App\Validator\TaxNumber;
+use App\Validator\TaxNumberValidator;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
-class CouponCodeValidatorTest extends ConstraintValidatorTestCase
+class TaxNumberValidatorTest extends ConstraintValidatorTestCase
 {
     protected function createValidator(): ConstraintValidatorInterface
     {
         $kernel = new Kernel('test', true);
         $kernel->boot();
         $container = $kernel->getContainer()->get('test.service_container');
-        return $container->get(CouponCodeValidator::class);
+        return $container->get(TaxNumberValidator::class);
     }
 
-    public function testValidCouponCode(): void
+    public function testValidTaxNumber(): void
     {
-        $this->validator->validate('P10', new CouponCode());
+        $this->validator->validate('IT22222222222', new TaxNumber());
         $this->assertNoViolation();
     }
 
-    public function testInvalidCouponCode(): void
+    
+    public function testInvalidTaxNumber(): void
     {
-        $constraint = new CouponCode();
-        $value = 'P50';
+        $constraint = new TaxNumber();
+        $value = 'DE11';
         $this->validator->validate($value, $constraint);
 
         $this->buildViolation($constraint->message)
